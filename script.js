@@ -24,3 +24,10 @@ function changeDivColor(e) {
         e.target.classList.add("change-color");
     }
 }
+
+function deleteGrid() {
+    const squareDivs = document.querySelectorAll(".square-div");
+    squareDivs.forEach((squareDiv) => {
+        squareDiv.remove();
+    });
+}
