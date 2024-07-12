@@ -27,3 +27,7 @@ body {
     height: 40px;
     border: 1px solid black;
 }
+
+.change-color {
+    background-color: black;
+}

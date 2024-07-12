@@ -7,3 +7,13 @@ for (let i = 0; i < 256; i++) {
     squareDiv.classList.add("square-div")
     container.appendChild(squareDiv);
 }
+
+container.addEventListener("mouseover", changeDivColor);
+
+function changeDivColor(e) {
+    if (e.target.classList.contains("container")) {
+        return;
+    } else {
+        e.target.classList.add("change-color");
+    }
+}
