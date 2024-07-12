@@ -2,11 +2,18 @@
 
 const container = document.querySelector(".container");
 
-for (let i = 0; i < 256; i++) {
-    const squareDiv = document.createElement("div");
-    squareDiv.classList.add("square-div");
-    container.appendChild(squareDiv);
+function generateGrid(numOfSquares, width, height) {
+    for (let i = 0; i < (numOfSquares * numOfSquares); i++) {
+        const squareDiv = document.createElement("div");
+        squareDiv.style.width = width + "px";
+        squareDiv.style.height = height + "px";
+        squareDiv.style.border = "1px solid black"; // remove, only here for testing
+        squareDiv.classList.add("square-div");
+        container.appendChild(squareDiv);
+    }
 }
+
+generateGrid(16, 50, 50);
 
 container.addEventListener("mouseover", changeDivColor);
 
