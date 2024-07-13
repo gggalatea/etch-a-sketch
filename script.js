@@ -27,7 +27,7 @@ function changeDivColor(e) {
     if (e.target.classList.contains("container")) {
         return;
     } else {
-        e.target.style.backgroundColor = `rgb()`;
+        e.target.style.backgroundColor = `rgb(${getRandomNum(255)} ${getRandomNum(255)} ${getRandomNum(255)})`;
     }
 }
 
