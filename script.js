@@ -27,8 +27,12 @@ function changeDivColor(e) {
     if (e.target.classList.contains("container")) {
         return;
     } else {
-        e.target.classList.add("change-color");
+        e.target.style.backgroundColor = `rgb()`;
     }
+}
+
+function getRandomNum(maxNum) {
+    return Math.floor(Math.random() * (maxNum + 1));
 }
 
 const newGridBtn = document.querySelector(".new-grid-btn");
