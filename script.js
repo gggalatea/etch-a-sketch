@@ -21,9 +21,9 @@ function generateGrid(numOfSquares) {
 
 generateGrid(16);
 
-container.addEventListener("mouseover", changeDivColor);
+container.addEventListener("mouseover", changeSquareDivColor);
 
-function changeDivColor(e) {
+function changeSquareDivColor(e) {
     if (e.target.classList.contains("container")) {
         return;
     } else {
