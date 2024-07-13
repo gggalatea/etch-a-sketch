@@ -2,10 +2,10 @@
 
 const container = document.querySelector(".container");
 
-const containerWidth = parseInt(document.styleSheets[0].cssRules[3].style.width, 10) - (parseInt(document.styleSheets[0].cssRules[3].style.borderLeftWidth, 10) + parseInt(document.styleSheets[0].cssRules[3].style.borderRightWidth, 10));
-const containerHeight = parseInt(document.styleSheets[0].cssRules[3].style.height, 10) - (parseInt(document.styleSheets[0].cssRules[3].style.borderTopWidth, 10) + parseInt(document.styleSheets[0].cssRules[3].style.borderBottomWidth, 10));
-
 function generateGrid(numOfSquares) {
+    const containerWidth = parseInt(document.styleSheets[0].cssRules[3].style.width, 10) - (parseInt(document.styleSheets[0].cssRules[3].style.borderLeftWidth, 10) + parseInt(document.styleSheets[0].cssRules[3].style.borderRightWidth, 10));
+    const containerHeight = parseInt(document.styleSheets[0].cssRules[3].style.height, 10) - (parseInt(document.styleSheets[0].cssRules[3].style.borderTopWidth, 10) + parseInt(document.styleSheets[0].cssRules[3].style.borderBottomWidth, 10));
+
     const squareDivWidth = (containerWidth / numOfSquares) + "px";
     const squareDivHeight = (containerHeight / numOfSquares) + "px";
 
