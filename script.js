@@ -3,20 +3,30 @@
 const container = document.querySelector(".container");
 
 function generateGrid(numOfSquares) {
-    const containerWidth = parseInt(document.styleSheets[0].cssRules[3].style.width, 10) - (parseInt(document.styleSheets[0].cssRules[3].style.borderLeftWidth, 10) + parseInt(document.styleSheets[0].cssRules[3].style.borderRightWidth, 10));
-    const containerHeight = parseInt(document.styleSheets[0].cssRules[3].style.height, 10) - (parseInt(document.styleSheets[0].cssRules[3].style.borderTopWidth, 10) + parseInt(document.styleSheets[0].cssRules[3].style.borderBottomWidth, 10));
-
-    const squareDivWidth = (containerWidth / numOfSquares) + "px";
-    const squareDivHeight = (containerHeight / numOfSquares) + "px";
-
     for (let i = 0; i < (numOfSquares * numOfSquares); i++) {
         const squareDiv = document.createElement("div");
-        squareDiv.style.width = squareDivWidth;
-        squareDiv.style.height = squareDivHeight;
+        squareDiv.style.width = getSquareDivWidth(numOfSquares);
+        squareDiv.style.height = getSquareDivHeight(numOfSquares);
         squareDiv.style.border = "1px solid black"; // remove, only here for testing
         squareDiv.classList.add("square-div");
         container.appendChild(squareDiv);
     }
+}
+
+function getSquareDivWidth(numOfSquares) {
+    return ((getContainerWidth() / numOfSquares) + "px");
+}
+
+function getContainerWidth() {
+    return (parseInt(document.styleSheets[0].cssRules[3].style.width, 10) - (parseInt(document.styleSheets[0].cssRules[3].style.borderLeftWidth, 10) + parseInt(document.styleSheets[0].cssRules[3].style.borderRightWidth, 10)));
+}
+
+function getSquareDivHeight(numOfSquares) {
+    return ((getContainerHeight() / numOfSquares) + "px");
+}
+
+function getContainerHeight() {
+    return (parseInt(document.styleSheets[0].cssRules[3].style.height, 10) - (parseInt(document.styleSheets[0].cssRules[3].style.borderTopWidth, 10) + parseInt(document.styleSheets[0].cssRules[3].style.borderBottomWidth, 10)));
 }
 
 generateGrid(16);
