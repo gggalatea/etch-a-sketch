@@ -13,6 +13,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: Roboto, sans-serif;
+    background-color: #F4D5A4;
 }
 
 .container {
@@ -21,4 +23,31 @@ body {
     width: 802px;
     height: 802px;
     border: 1px solid black;
+    background-color: white;
+}
+
+.new-grid-btn {
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 5px 40px;
+    margin: 15px 0px;
+    border: none;
+    border-radius: 5px;
+    background-color: #77AC92;
+    color: white;
+}
+
+.new-grid-btn:hover {
+    background-color: #65A184;
+}
+
+.title {
+    margin: 13px 0px 0px;
+    padding: 5px 75px;
+    font-size: 40px;
+    font-weight: 900;
+    border-radius: 5px;
+    background-color: #3D405B;
+    color: white;
 }

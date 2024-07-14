@@ -7,7 +7,6 @@ function generateGrid(numOfSquares) {
         const squareDiv = document.createElement("div");
         squareDiv.style.width = getSquareDivWidth(numOfSquares);
         squareDiv.style.height = getSquareDivHeight(numOfSquares);
-        squareDiv.style.border = "1px solid black"; // remove, only here for testing
         squareDiv.classList.add("square-div");
         container.appendChild(squareDiv);
     }
