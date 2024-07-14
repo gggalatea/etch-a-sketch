@@ -21,18 +21,33 @@ function generateGrid(numOfSquares) {
 
 generateGrid(16);
 
-container.addEventListener("mouseover", changeSquareDivColor);
+container.addEventListener("mouseover", changeSquareDivStyles);
 
-function changeSquareDivColor(e) {
+function changeSquareDivStyles(e) {
     if (e.target.classList.contains("container")) {
         return;
     } else {
-        e.target.style.backgroundColor = `rgb(${getRandomNum(255)} ${getRandomNum(255)} ${getRandomNum(255)})`;
+        changeSquareDivColor(e);
+        changeSquareDivOpacity(e);
     }
+}
+
+function changeSquareDivColor(e) {
+    e.target.style.backgroundColor = `rgb(${getRandomNum(255)} ${getRandomNum(255)} ${getRandomNum(255)})`;
 }
 
 function getRandomNum(maxNum) {
     return Math.floor(Math.random() * (maxNum + 1));
+}
+
+function changeSquareDivOpacity(e) {
+    if (e.target.style.opacity === "1") {
+        return;
+    } else if (!e.target.style.opacity) {
+        e.target.style.opacity = "0";
+    }
+    const currentOpacity = parseFloat(e.target.style.opacity);
+    e.target.style.opacity = `${((currentOpacity * 10) + (0.1 * 10)) / 10}`;
 }
 
 const newGridBtn = document.querySelector(".new-grid-btn");
