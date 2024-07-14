@@ -56,7 +56,8 @@ function changeSquareDivOpacity(e) {
         e.target.style.opacity = "0";
     }
     const currentOpacity = parseFloat(e.target.style.opacity);
-    e.target.style.opacity = `${((currentOpacity * 10) + (0.1 * 10)) / 10}`;
+    const incrementOpacity = 0.1;
+    e.target.style.opacity = `${((currentOpacity * 10) + (incrementOpacity * 10)) / 10}`;
 }
 
 const newGridBtn = document.querySelector(".new-grid-btn");
