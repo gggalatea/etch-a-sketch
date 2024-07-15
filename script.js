@@ -3,6 +3,8 @@
 const container = document.querySelector(".container");
 
 function generateGrid(numOfSquares) {
+    const numOfRows = numOfSquares;
+    const numOfColumns = numOfSquares;
     for (let i = 0; i < (numOfSquares * numOfSquares); i++) {
         const squareDiv = document.createElement("div");
         squareDiv.style.width = getSquareDivWidth(numOfSquares);
