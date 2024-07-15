@@ -5,29 +5,16 @@ const container = document.querySelector(".container");
 function generateGrid(numOfSquares) {
     const numOfRows = numOfSquares;
     const numOfColumns = numOfSquares;
-    for (let i = 0; i < (numOfSquares * numOfSquares); i++) {
-        const squareDiv = document.createElement("div");
-        squareDiv.style.width = getSquareDivWidth(numOfSquares);
-        squareDiv.style.height = getSquareDivHeight(numOfSquares);
-        squareDiv.classList.add("square-div");
-        container.appendChild(squareDiv);
+    for (let i = 0; i < numOfRows; i++) {
+        const row = document.createElement("div");
+        row.classList.add("row");
+        container.appendChild(row);
+        for (let i = 0; i < numOfColumns; i++) {
+            const squareDiv = document.createElement("div");
+            squareDiv.classList.add("square-div");
+            row.appendChild(squareDiv);
+        }
     }
-}
-
-function getSquareDivWidth(numOfSquares) {
-    return ((getContainerWidth() / numOfSquares) + "px");
-}
-
-function getContainerWidth() {
-    return (parseInt(document.styleSheets[0].cssRules[3].style.width, 10) - (parseInt(document.styleSheets[0].cssRules[3].style.borderLeftWidth, 10) + parseInt(document.styleSheets[0].cssRules[3].style.borderRightWidth, 10)));
-}
-
-function getSquareDivHeight(numOfSquares) {
-    return ((getContainerHeight() / numOfSquares) + "px");
-}
-
-function getContainerHeight() {
-    return (parseInt(document.styleSheets[0].cssRules[3].style.height, 10) - (parseInt(document.styleSheets[0].cssRules[3].style.borderTopWidth, 10) + parseInt(document.styleSheets[0].cssRules[3].style.borderBottomWidth, 10)));
 }
 
 generateGrid(16);
@@ -35,7 +22,7 @@ generateGrid(16);
 container.addEventListener("mouseover", changeSquareDivStyles);
 
 function changeSquareDivStyles(e) {
-    if (e.target.classList.contains("container")) {
+    if (e.target.classList.contains("container") || e.target.classList.contains("row")) {
         return;
     } else {
         changeSquareDivColor(e);
@@ -63,7 +50,6 @@ function changeSquareDivOpacity(e) {
 }
 
 const newGridBtn = document.querySelector(".new-grid-btn");
-
 newGridBtn.addEventListener("click", createNewGrid);
 
 function createNewGrid() {
@@ -95,8 +81,8 @@ function askNumOfSquares() {
 }
 
 function deleteGrid() {
-    const squareDivs = document.querySelectorAll(".square-div");
-    squareDivs.forEach((squareDiv) => {
-        squareDiv.remove();
+    const rows = document.querySelectorAll(".row");
+    rows.forEach((row) => {
+        row.remove();
     });
 }
